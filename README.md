@@ -33,7 +33,7 @@ Este projeto é um receptor de dados de sensores que se comunica com uma porta s
 
 ## Modo de Teste
 
-O modo de teste simula a leitura de dados de sensores sem a necessidade de hardware físico. Ele gera dados fictícios de temperatura, umidade e luminosidade e os processa como se estivessem vindo de uma porta serial.
+O modo de teste simula a leitura de dados de sensores sem a necessidade de hardware físico. Ele gera dados fictícios de temperatura, umidade e luminosidade e os processa como se fosse de uma porta serial.
 
 Para ativar o modo de teste, defina a variável `testMode` como `true` na classe `SensorDataReceiver`:
 

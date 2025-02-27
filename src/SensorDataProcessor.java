@@ -15,10 +15,10 @@ public class SensorDataProcessor {
                 String humidity = values[1].split(": ")[1];
                 String light = values[2].split(": ")[1];
 
-                System.out.println("------------------------------------");
+                System.out.println("_________________________________________________");
                 System.out.println("Temperatura: " + temperature + "°C");
                 System.out.println("Umidade: " + humidity);
-                System.out.println("Luminosidade: " + light + " Lumens");
+                System.out.println("Luminosidade: " + light + " Lux");
                 System.out.println();
 
                 double tempValue = Double.parseDouble(temperature);
