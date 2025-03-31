@@ -1,0 +1,7 @@
+Temperatura: 26.96°C, Umidade: 57%, Luminosidade: 974 Lux
+Temperatura: 25.53°C, Umidade: 46%, Luminosidade: 266 Lux
+Temperatura: 27.30°C, Umidade: 41%, Luminosidade: 713 Lux
+Temperatura: 25.65°C, Umidade: 58%, Luminosidade: 487 Lux
+Temperatura: 27.14°C, Umidade: 51%, Luminosidade: 870 Lux
+Temperatura: 25.47°C, Umidade: 54%, Luminosidade: 430 Lux
+Temperatura: 26.65°C, Umidade: 47%, Luminosidade: 943 Lux
