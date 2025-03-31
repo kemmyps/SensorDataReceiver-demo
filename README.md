@@ -1,99 +1,125 @@
-# Sensor Data Receiver
+# 📡 Sensor Data Receiver
 
-Este projeto é um receptor de dados de sensores que se comunica com uma porta serial para ler dados de temperatura, umidade e luminosidade. Ele também inclui um modo de teste para simular dados de sensores sem a necessidade de hardware físico.
+Este projeto é um sistema de monitoramento de sensores que se comunica com uma porta serial para obter leituras de **temperatura, umidade e luminosidade**. Ele exibe as leituras de forma organizada no terminal, fornece alertas quando os valores estão fora dos padrões e simula leituras no **modo de teste**.
 
-## Funcionalidades
+---
 
-* Leitura de dados de sensores por meio de uma porta serial.
-* Processamento de dados de temperatura, humidade e luminosidade.
-* Exibição de alertas quando os valores dos sensores ultrapassam os limites definidos.
-* Modo de teste para simular dados de sensores sem ‘hardware’ físico.
+## ✨ Funcionalidades
 
-## Estrutura do Projeto
+✅ Leitura de dados de sensores por meio de uma porta serial.
+✅ Processamento de dados e exibição estruturada no terminal.
+✅ Alertas para temperatura alta, umidade baixa e luz intensa.
+✅ Registro de histórico de leituras em `sensor_log.txt`.
+✅ **Modo de Teste** para simular dados sem hardware físico.
+✅ Interface interativa no terminal, permitindo múltiplas leituras.
 
-* `Main.java`: Ponto de entrada da aplicação.
-* `SensorDataReceiver.java`: Classe principal que gerencia a comunicação e o processamento dos dados.
-* `SerialCommunication.java`: Classe que lida com a comunicação serial.
-* `SensorDataProcessor.java`: Classe que processa os dados dos sensores e gera dados de teste.
+---
 
+## 🛠 Estrutura do Projeto
 
-## Pré-requisitos
+📂 **`Main.java`** → Ponto de entrada da aplicação.
+📂 **`SensorManager.java`** → Gerencia a leitura de sensores e interação com o usuário.
+📂 **`SensorDataReceiver.java`** → Responsável por coletar dados do sensor.
+📂 **`SensorData.java`** → Modela os dados do sensor e gera alertas com base nos valores.
+📂 **`SerialCommunication.java`** → Realiza a comunicação serial com os sensores físicos.
+📂 **`SensorDataProcessor.java`** → Processa os dados e gera leituras no modo de teste.
+📂 **`sensor_log.txt`** → Registro histórico das leituras dos sensores.
 
-* Java Development Kit (JDK) instalado.
-* Biblioteca jSerialComm adicionada ao projeto.
-* IDE da sua preferência (eu utilizei IntelliJ).
+---
 
-## Como Usar
+## 🔧 Pré-requisitos
 
-1.  Clone este repositório.
-2.  Abra o projeto na sua IDE Java preferida.
-3.  Adicione a biblioteca jSerialComm ao seu projeto.
-4.  Para usar o modo de teste, defina a variável `testMode` como `true` na classe `SensorDataReceiver`.
-5.  Execute a classe `Main`.
+📌 **Java Development Kit (JDK)** instalado.
+📌 Biblioteca **jSerialComm** adicionada ao projeto.
+📌 IDE da sua preferência (**IntelliJ**, **Eclipse**, **VS Code** etc.).
 
-## Modo de Teste
+---
 
-O modo de teste simula a leitura de dados de sensores sem a necessidade de hardware físico. Ele gera dados fictícios de temperatura, umidade e luminosidade e os processa como se fosse de uma porta serial.
+## 🚀 Como Usar
 
-Para ativar o modo de teste, defina a variável `testMode` como `true` na classe `SensorDataReceiver`:
+1️⃣ Clone este repositório:
+```sh
+git clone https://github.com/seu-repositorio.git
+```
+2️⃣ Abra o projeto na sua **IDE Java** preferida.
+3️⃣ **Adicione a biblioteca jSerialComm** ao projeto.
+4️⃣ Para usar o **modo de teste**, defina `testMode = true` em `SensorDataReceiver.java`.
+5️⃣ Execute a classe `Main` para iniciar o monitoramento.
+
+---
+
+## 🎭 Modo de Teste
+
+O **modo de teste** gera dados simulados para testar o sistema sem necessidade de hardware físico. Para ativá-lo, modifique a variável `testMode`:
 
 ```java
-private boolean testMode = true;
+private boolean testMode = true; // true para simulação, false para hardware físico
 ```
 
-    classDiagram
-        class Main {
+---
+
+## 📊 UML - Diagrama de Classes
+
+```mermaid
+classDiagram
+    class Main {
         +main(args : String[]) : void
-        }
-
-        class SensorDataReceiver {
-            -serialCommunication : SerialCommunication
-            -dataProcessor : SensorDataProcessor
-            -testMode : boolean
-            +SensorDataReceiver(portName : String)
-            +start() : void
-            +close() : void
-        }
-    
-        class SerialCommunication {
-            -serialPort : SerialPort
-            +SerialCommunication(portName : String)
-            +initialize() : boolean
-            +readData() : String
-            +close() : void
-        }
-    
-        class SensorDataProcessor {
-            +generateTestData() : String
-            +processSensorData(data : String) : void
-        }
-    
-        class SerialPort {
-            <<external>>
-            +openPort() : boolean
-            +setComPortParameters(int baudRate, int dataBits, int stopBits, int parity) : boolean
-            +getInputStream() : InputStream
-            +closePort() : boolean
-            +getSystemPortName() : String
-            +isOpen() : boolean
-            +getCommPorts() : SerialPort[]
-        }
-    
-        class InputStream {
-            <<external>>
-        }
-    
-        class Scanner {
-            <<external>>
-            +Scanner(InputStream source)
-            +hasNextLine() : boolean
-            +nextLine() : String
-            +close() : void
-        }
-
-    Main "1" --> "1" SensorDataReceiver : cria
+    }
+    class SensorManager {
+        - receiver : SensorDataReceiver
+        - scanner : Scanner
+        +SensorManager(portName : String)
+        +start() : void
+    }
+    class SensorDataReceiver {
+        -serialCommunication : SerialCommunication
+        -dataProcessor : SensorDataProcessor
+        -testMode : boolean
+        +SensorDataReceiver(portName : String)
+        +readSensorData() : String
+        +close() : void
+    }
+    class SerialCommunication {
+        -serialPort : SerialPort
+        +SerialCommunication(portName : String)
+        +initialize() : boolean
+        +readData() : String
+        +close() : void
+    }
+    class SensorDataProcessor {
+        +generateTestData() : String
+        +processSensorData(data : String) : void
+    }
+    class SensorData {
+        - temperature : double
+        - humidity : int
+        - light : int
+        +SensorData(temp : double, hum : int, light : int)
+        +formatData() : String
+        +getSystemActions() : String
+    }
+    SensorManager "1" --> "1" SensorDataReceiver : cria
     SensorDataReceiver "1" --* "1" SerialCommunication : tem um
     SensorDataReceiver "1" --* "1" SensorDataProcessor : tem um
     SerialCommunication "1" --* "1" SerialPort : usa
-    SerialCommunication "1" --* "1" InputStream : usa
-    SerialCommunication "1" --* "1" Scanner : usa
+    SensorManager "1" --* "1" SensorData : processa
+```
+
+---
+
+## 📱 Protótipo Ilustrativo
+
+Este projeto conta com um **protótipo mobile** no Figma para representar uma interface gráfica idealizada para um ambiente smart home. **Este protótipo é apenas ilustrativo e não faz parte da implementação no terminal.**
+
+🎨 **[Acesse o protótipo no Figma](https://www.figma.com/design/FcUjUmA3Yr3K1A1IGixOBM/Smart-Home---prototipo-PI?node-id=0-1&t=EacrxY74hyioRjRt-1)**
+
+---
+
+## 📌 Observações
+
+🔹 Se estiver rodando com sensores reais, certifique-se de definir `testMode = false`.
+🔹 O sistema exibe **alertas visuais** no terminal para valores fora dos padrões.
+🔹 O histórico das leituras é salvo automaticamente em `sensor_log.txt`.
+
+💡 **Sugestões de melhoria são sempre bem-vindas!** 🚀
+
