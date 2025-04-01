@@ -27,7 +27,6 @@ Este projeto é um sistema de monitoramento de sensores que se comunica com uma 
 📂 **`SensorDataProcessor.java`** → Processa os dados e gera leituras no modo de teste.\
 📂 **`sensor_log.txt`** → Registro histórico das leituras dos sensores.
 
-
 ---
 
 ## 🔧 Pré-requisitos
