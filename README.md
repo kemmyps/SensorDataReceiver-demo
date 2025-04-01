@@ -17,10 +17,16 @@ Este projeto é um sistema de monitoramento de sensores que se comunica com uma 
 
 ## 🛠 Estrutura do Projeto
 
-📂 `→ Ponto de entrada da aplicação.   📂` → Gerencia a leitura de sensores e interação com o usuário.\
-📂 `→ Responsável por coletar dados do sensor.   📂` → Modela os dados do sensor e gera alertas com base nos valores.\
-📂 `→ Realiza a comunicação serial com os sensores físicos.   📂` → Processa os dados e gera leituras no modo de teste.\
-📂 \`\` → Registro histórico das leituras dos sensores.
+## 🛠 Estrutura do Projeto
+
+📂 **`Main.java`** → Ponto de entrada da aplicação.\
+📂 **`SensorManager.java`** → Gerencia a leitura de sensores e interação com o usuário.\
+📂 **`SensorDataReceiver.java`** → Responsável por coletar dados do sensor.\
+📂 **`SensorData.java`** → Modela os dados do sensor e gera alertas com base nos valores.\
+📂 **`SerialCommunication.java`** → Realiza a comunicação serial com os sensores físicos.\
+📂 **`SensorDataProcessor.java`** → Processa os dados e gera leituras no modo de teste.\
+📂 **`sensor_log.txt`** → Registro histórico das leituras dos sensores.
+
 
 ---
 
