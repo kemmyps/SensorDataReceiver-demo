@@ -17,8 +17,6 @@ Este projeto é um sistema de monitoramento de sensores que se comunica com uma 
 
 ## 🛠 Estrutura do Projeto
 
-## 🛠 Estrutura do Projeto
-
 📂 **`Main.java`** → Ponto de entrada da aplicação.\
 📂 **`SensorManager.java`** → Gerencia a leitura de sensores e interação com o usuário.\
 📂 **`SensorDataReceiver.java`** → Responsável por coletar dados do sensor.\
