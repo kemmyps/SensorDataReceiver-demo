@@ -114,8 +114,7 @@ Este projeto conta com um **protótipo no Arduino** para simular sensores de **t
 
 ### 📸 Esquema do Circuito
 
-![Esquema Arduino](Smart House - Sensores de luz, temperatura e humidade.png)
-
+![Esquema Arduino](images/arduino_circuit.png)
 ### 📜 Código do Arduino
 
 ```cpp
@@ -169,7 +168,8 @@ Este projeto também inclui um **protótipo de aplicativo mobile** desenvolvido 
 
 ### 📸 Captura de Tela do Protótipo
 
-![Protótipo Mobile](Screenshot 2025-03-31 at 21.01.33.png)
+
+![Protótipo Mobile](images/mobile_prototype.png)
 
 ---
 
